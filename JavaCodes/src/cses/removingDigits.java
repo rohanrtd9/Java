@@ -1,5 +1,7 @@
 package cses;
 
+
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -27,18 +29,42 @@ static class Solution1
 {
 	public void solve(int number, FastReader in, PrintWriter out) 
 	{
-		int inf = 1000;
-		Map<Integer,Integer> mp=new HashMap<>();
+		int n[]=new int[number+1];
+		int lim=10;
+		if (number<lim)
+			lim=number+1;
+		
+		for (int i = 0; i < lim; i++) {
+			n[i]=1;
+		}
+		for (int i = 10; i < n.length; i++) {
+			int arr[]=this.digitArr(i);
+			int min=Integer.MAX_VALUE;
+			for (int j : arr) {
+				if(j==0)
+					continue;
+				if(n[i-j]<min)
+					min=n[i-j];
+				
+			}
+			n[i]=min+1;
+		}
 	
 		
-		out.print(number);
+		out.print(n[number]);
 	}
-	private int getSteps(int n,Map<Integer,Integer> mp)
+	private int[] digitArr(int n)
 	{
-		if(mp.containsKey(n))
-			return mp.get(n);
-		return 0;
+		int a[]=new int[6];
+		int ptr=0;
+		while(n>0)
+		{
+			a[ptr++]=n%10;
+			n/=10;
+		}
+		return a;
 	}
+	
 }
 
 static class FastReader {
