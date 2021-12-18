@@ -12,7 +12,7 @@ public class Rock {
 	public static void main(String[] args)throws Exception 
 	{	Rock rc= new Rock();
 	
-		//importing io functions
+		//importing i/o functions
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter out = new PrintWriter(System.out);
 		StringTokenizer st= new StringTokenizer(br.readLine());
