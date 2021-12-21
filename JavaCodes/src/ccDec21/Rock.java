@@ -12,7 +12,7 @@ public class Rock {
 	public static void main(String[] args)throws Exception 
 	{	Rock rc= new Rock();
 	
-		//importing io functions
+		//importing i/o functions
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter out = new PrintWriter(System.out);
 		StringTokenizer st= new StringTokenizer(br.readLine());
@@ -33,7 +33,7 @@ public class Rock {
 				if( mp.containsKey(key))
 					output[i]=mp.get(key);
 				else
-					output[i]=rc.getWinner(c, i, mp, c[i]);
+					output[i]=rc.getWinner(c, i+1, mp, c[i]);
 					
 			}
 			
@@ -43,7 +43,7 @@ public class Rock {
 	}
 	private char getWinner(char c[],int i, Map<String,Character> mp,char crr)
 	{
-		if(i==c.length-1)
+		if(i>=c.length-1)
 			return crr;
 		String key=crr+"_"+i;
 		if(mp.containsKey(key))
@@ -51,25 +51,25 @@ public class Rock {
 		else
 		{
 			char curWinner;
-			if (this.computeWinner(crr, c[i+1]))
+			if (this.computeWinner(crr, c[i]))
 				curWinner=crr;
 			else
 				curWinner=c[i+1];
-			String key1=curWinner+"_"+(i+1);
+			String key1=curWinner+"_"+i;
 			
 			
 			char c1;
 			if(mp.containsKey(key1))
 			{
 				c1=mp.get(key1);
-				mp.put(crr+"_"+i, c1);
+				mp.put(crr+"_"+(i-1), c1);
 				return c1;
 			}
 			else 
 			{
 				c1=this.getWinner(c, i+1, mp, curWinner);
 				
-				mp.put(crr+"_"+i, c1);
+				mp.put(crr+"_"+(i-1), c1);
 				return c1;
 			}
 			
