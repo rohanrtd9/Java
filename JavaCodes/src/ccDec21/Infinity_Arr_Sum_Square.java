@@ -3,10 +3,9 @@ package ccDec21;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.StringTokenizer;
 
-public class paranthesis {
+public class Infinity_Arr_Sum_Square {
 	public static void main(String[] args)throws Exception 
 	{	
 		//importing io functions
@@ -19,33 +18,15 @@ public class paranthesis {
 		//loop for doing coding 
 		while(tc-->0)
 		{
-			char c[]=br.readLine().toCharArray();
+			st= new StringTokenizer(br.readLine());
+			//this is number of test cases
+			int n=Integer.parseInt(st.nextToken());
 			
-			//first we scan to find balanced parenthesis end points
-			
-			//this is balance factor
-			//it is zero initially
-			int bf=0;
-			int ptrClose=0;
-			int min=c.length;
-			int openSwaps[]=new int[c.length/2];
-			
-			for (int i = 0; i < c.length; i++) {
-				if(c[i]=='(')
-				{
-					bf++;
-					while(c[++ptrClose]!=')');
-					if	( (ptrClose-i) < min)
-						min=ptrClose-i;
-				}
-				else
-				{
-					bf--;
-				}
-				
-				
+			//initialize array with all 1s
+			int arr[]=new int[n];
+			for (int i = 0; i < arr.length; i++) {
+				arr[i]=1;
 			}
-			out.println(min);
 		}
 		out.flush();
 	}

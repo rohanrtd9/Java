@@ -3,10 +3,9 @@ package ccDec21;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.StringTokenizer;
 
-public class paranthesis {
+public class codeDrive3 {
 	public static void main(String[] args)throws Exception 
 	{	
 		//importing io functions
@@ -19,33 +18,29 @@ public class paranthesis {
 		//loop for doing coding 
 		while(tc-->0)
 		{
+			st= new StringTokenizer(br.readLine());
+			//this is number of test cases
+			int n=Integer.parseInt(st.nextToken());
+			int k=Integer.parseInt(st.nextToken()); 
 			char c[]=br.readLine().toCharArray();
 			
-			//first we scan to find balanced parenthesis end points
-			
-			//this is balance factor
-			//it is zero initially
-			int bf=0;
-			int ptrClose=0;
-			int min=c.length;
-			int openSwaps[]=new int[c.length/2];
-			
-			for (int i = 0; i < c.length; i++) {
-				if(c[i]=='(')
-				{
-					bf++;
-					while(c[++ptrClose]!=')');
-					if	( (ptrClose-i) < min)
-						min=ptrClose-i;
-				}
-				else
-				{
-					bf--;
-				}
-				
-				
+			int oneC=0;
+			for (int i = 0; i < n-k+1; i++) {
+				if(c[i]=='1')
+					oneC+=1;
 			}
-			out.println(min);
+			int res=0;
+			res+=oneC&1;
+			for (int i = 1; (n-k)+i<n; i++) {
+				if (c[n-k+i]=='1')
+					oneC+=1;
+				if (c[i-1]=='1')
+					oneC-=1;
+				res+=oneC&1;
+			}
+			
+			
+			out.println(res);
 		}
 		out.flush();
 	}
