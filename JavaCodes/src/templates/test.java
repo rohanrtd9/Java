@@ -2,6 +2,6 @@ package templates;
 
 public class test {
 	public static void main(String[] args) {
-		System.out.println(Integer.highestOneBit(6));
+		int a[]=new int[500000000];
 	}
 }
