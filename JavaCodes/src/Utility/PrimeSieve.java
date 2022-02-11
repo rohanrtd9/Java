@@ -4,15 +4,17 @@ import java.util.Iterator;
 
 public class PrimeSieve {
 	public static void main(String[] args) {
-		int arr[]=new int[100000000];
+		int arr[]=new int[1000];
 		PrimeSieve ps= new PrimeSieve();
 		ps.returnPRines(arr);
 		
-		
+		int count=0;
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i]==0)
-				System.out.println(i);
+				count++;
+			
 		}
+		System.out.println(count);
 		
 	}
 	private void returnPRines(int n[])
