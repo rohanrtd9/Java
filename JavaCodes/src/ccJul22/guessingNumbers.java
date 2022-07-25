@@ -13,7 +13,7 @@ public class guessingNumbers {
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter out = new PrintWriter(System.out);
 		StringTokenizer st= new StringTokenizer(br.readLine());
-		//this is number of test cases
+		//this is number of test casess
 		int tc=Integer.parseInt(st.nextToken());
 		int primes[]=new int[200000];
 		
