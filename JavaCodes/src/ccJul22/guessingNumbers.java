@@ -16,6 +16,7 @@ public class guessingNumbers {
 		//this is number of test cases
 		int tc=Integer.parseInt(st.nextToken());
 		int primes[]=new int[200000];
+		
 		returnPrimes(primes);
 		//loop for doing coding 
 		while(tc-->0)
